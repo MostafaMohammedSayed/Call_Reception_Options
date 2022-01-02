@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ReceptionButton">
+        <attr name="buttonColor" format="color" />
+        <attr name="firstRingColor" format="color" />
+        <attr name="secondRingColor" format="color" />
+        <attr name="thirdRingColor" format="color" />
+        <attr name="fourthRingColor" format="color" />
+        <attr name="fifthRingColor" format="color" />
+        <attr name="buttonDrawableId" format="string" />
+        <attr name="ringWidth" format="dimension" />
+        <attr name="viewSizeFraction" format="integer" />
+        <attr name="xPositionFraction" format="float" />
+        <attr name="yPositionFraction" format="float" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="state" format="enum">
+            <enum name="ringing" value="0" />
+            <enum name="answer" value="1" />
+            <enum name="reject" value="2" />
+            <enum name="makeSilent" value="3" />
+            <enum name="message" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>
