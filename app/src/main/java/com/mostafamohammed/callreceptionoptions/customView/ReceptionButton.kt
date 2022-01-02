@@ -37,7 +37,6 @@ class ReceptionButton @JvmOverloads constructor(
     private var fifthRingColor = defaultFifthRingColor
 
     private val ringingButtonDrawableId = R.drawable.ic_baseline_local_phone_24
-    private var buttonDrawableId = ringingButtonDrawableId
 
     private val ringingButtonDrawable =
         ContextCompat.getDrawable(context, ringingButtonDrawableId)
