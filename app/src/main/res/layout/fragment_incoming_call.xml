@@ -2,69 +2,74 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.IncomingCallFragment">
 
     <com.mostafamohammed.callreceptionoptions.customView.ReceptionButton
         android:id="@+id/centerButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:state="ringing"
+        android:layout_width="@dimen/center_button_dimension"
+        android:layout_height="@dimen/center_button_dimension"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"
+        app:state="ringing" />
+
     <com.mostafamohammed.callreceptionoptions.customView.ReceptionButton
         android:id="@+id/answerButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:state="answer"
-        app:viewSizeFraction="5"
-        app:ringWidth="0dp"
-        app:xPositionFraction="0.8"
-        app:yPositionFraction="0.75"
+        android:layout_width="@dimen/default_button_dimension"
+        android:layout_height="@dimen/default_button_dimension"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.900"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/centerButton"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintVertical_bias="0.850"
+        app:ringWidth="0dp"
+        app:state="answer" />
+
     <com.mostafamohammed.callreceptionoptions.customView.ReceptionButton
         android:id="@+id/rejectButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:state="reject"
-        app:viewSizeFraction="5"
-        app:ringWidth="0dp"
-        app:xPositionFraction="0.2"
-        app:yPositionFraction="0.75"
+        android:layout_width="@dimen/default_button_dimension"
+        android:layout_height="@dimen/default_button_dimension"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/centerButton"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:ringWidth="0dp"
+        app:state="reject"
+        app:layout_constraintHorizontal_bias="0.100"
+        app:layout_constraintVertical_bias="0.850"
+        />
+
     <com.mostafamohammed.callreceptionoptions.customView.ReceptionButton
         android:id="@+id/messageButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:state="message"
-        app:viewSizeFraction="5"
-        app:ringWidth="0dp"
-        app:xPositionFraction="0.35"
-        app:yPositionFraction="0.60"
+        android:layout_width="@dimen/default_button_dimension"
+        android:layout_height="@dimen/default_button_dimension"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.200"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/centerButton"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.600"
+        app:ringWidth="0dp"
+        app:state="message"/>
+
     <com.mostafamohammed.callreceptionoptions.customView.ReceptionButton
         android:id="@+id/muteButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:state="makeSilent"
-        app:viewSizeFraction="5"
-        app:ringWidth="0dp"
-        app:xPositionFraction="0.65"
-        app:yPositionFraction="0.60"
+        android:layout_width="@dimen/default_button_dimension"
+        android:layout_height="@dimen/default_button_dimension"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/centerButton"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintVertical_bias="0.600"
+        app:ringWidth="0dp"
+        app:state="makeSilent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

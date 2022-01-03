@@ -8,6 +8,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.mostafamohammed.callreceptionoptions.R
 
@@ -75,7 +76,7 @@ class ReceptionButton @JvmOverloads constructor(
     private val defaultRingWidth = 20.0f
     private var ringWidth = defaultRingWidth
 
-    private val defaultViewSize = 400
+    private val defaultViewSize = 300
     private var viewSize = defaultViewSize
     private val defaultViewSizeDivisor = 3
     private var viewSizeDivisor = defaultViewSizeDivisor
@@ -102,6 +103,10 @@ class ReceptionButton @JvmOverloads constructor(
             currentRadiusLength = percentage.toInt()
             invalidate()
         }
+    }
+
+    init {
+        isClickable = true
     }
 
     private val ringingButtonState = 0L
@@ -185,41 +190,47 @@ class ReceptionButton @JvmOverloads constructor(
     }
 
     private fun drawButtonDrawable(canvas: Canvas) {
-        if (buttonState == ringingButtonState) {
-            canvas.drawBitmap(
-                ringingButtonDrawableBitmap,
-                centerOfButtonCircle - ringingButtonDrawableHalfWidth,
-                centerOfButtonCircle - ringingButtonDrawableHalfHeight,
-                paint
-            )
-        } else if (buttonState == answerButtonState) {
-            canvas.drawBitmap(
-                answerButtonDrawableBitmap,
-                centerOfButtonCircle - answerButtonDrawableHalfWidth,
-                centerOfButtonCircle - answerButtonDrawableHalfHeight,
-                paint
-            )
-        } else if (buttonState == declineButtonState) {
-            canvas.drawBitmap(
-                declineButtonDrawableBitmap,
-                centerOfButtonCircle - declineButtonDrawableHalfWidth,
-                centerOfButtonCircle - declineButtonDrawableHalfHeight,
-                paint
-            )
-        }else if(buttonState == messageButtonState){
-            canvas.drawBitmap(
-                messageButtonDrawableBitmap,
-                centerOfButtonCircle - messageButtonDrawableHalfWidth,
-                centerOfButtonCircle - messageButtonDrawableHalfHeight,
-                paint
-            )
-        }else if(buttonState == makeSilentButtonState){
-            canvas.drawBitmap(
-                silentButtonDrawableBitmap,
-                centerOfButtonCircle - silentButtonDrawableHalfWidth,
-                centerOfButtonCircle - silentButtonDrawableHalfHeight,
-                paint
-            )
+        when (buttonState) {
+            ringingButtonState -> {
+                canvas.drawBitmap(
+                    ringingButtonDrawableBitmap,
+                    centerOfButtonCircle - ringingButtonDrawableHalfWidth,
+                    centerOfButtonCircle - ringingButtonDrawableHalfHeight,
+                    paint
+                )
+            }
+            answerButtonState -> {
+                canvas.drawBitmap(
+                    answerButtonDrawableBitmap,
+                    centerOfButtonCircle - answerButtonDrawableHalfWidth,
+                    centerOfButtonCircle - answerButtonDrawableHalfHeight,
+                    paint
+                )
+            }
+            declineButtonState -> {
+                canvas.drawBitmap(
+                    declineButtonDrawableBitmap,
+                    centerOfButtonCircle - declineButtonDrawableHalfWidth,
+                    centerOfButtonCircle - declineButtonDrawableHalfHeight,
+                    paint
+                )
+            }
+            messageButtonState -> {
+                canvas.drawBitmap(
+                    messageButtonDrawableBitmap,
+                    centerOfButtonCircle - messageButtonDrawableHalfWidth,
+                    centerOfButtonCircle - messageButtonDrawableHalfHeight,
+                    paint
+                )
+            }
+            makeSilentButtonState -> {
+                canvas.drawBitmap(
+                    silentButtonDrawableBitmap,
+                    centerOfButtonCircle - silentButtonDrawableHalfWidth,
+                    centerOfButtonCircle - silentButtonDrawableHalfHeight,
+                    paint
+                )
+            }
         }
     }
 
@@ -244,11 +255,11 @@ class ReceptionButton @JvmOverloads constructor(
         return bitmap
     }
 
-    fun animateProgress() {
+    fun startRingAnimation() {
         animator.start()
     }
 
-    fun stopAnimation() {
+    fun stopRingAnimation() {
         animator.cancel()
     }
 
@@ -290,6 +301,53 @@ class ReceptionButton @JvmOverloads constructor(
         )
 
         typedArray.recycle()
+    }
+
+    fun fadeView() {
+        alpha = 0.4f
+        invalidate()
+    }
+
+    override fun performClick(): Boolean {
+        when (buttonState) {
+            answerButtonState -> answerPhoneCall()
+            declineButtonState -> rejectPhoneCall()
+            messageButtonState -> sendingCallerAMessage()
+            makeSilentButtonState -> mutePhoneCall()
+        }
+        return super.performClick()
+    }
+
+    private fun mutePhoneCall() {
+        Toast.makeText(
+            context,
+            "Muting the call selected!",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun sendingCallerAMessage() {
+        Toast.makeText(
+            context,
+            "Sending a message selected!",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun rejectPhoneCall() {
+        Toast.makeText(
+            context,
+            "rejecting the call selected!",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun answerPhoneCall() {
+        Toast.makeText(
+            context,
+            "Answering the call selected!",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     companion object {
