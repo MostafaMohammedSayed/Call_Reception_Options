@@ -9,4 +9,13 @@
     <string name="phone_speaker">phone speaker</string>
     <string name="appPackageName">com.mostafamohammed.callreceptionoptions</string>
     <string name="ringing">Ringing</string>
+    <string name="centerButton">center button</string>
+    <string name="answerButton">answer button</string>
+    <string name="rejectButton">reject call button</string>
+    <string name="messageButton">send a message button</string>
+    <string name="muteButton">mute call ringing button</string>
+    <string name="mute_selected">Muting the call selected!</string>
+    <string name="message_selected">Sending a message selected!</string>
+    <string name="reject_selected">rejecting the call selected!</string>
+    <string name="answering_selected">Answering the call selected!</string>
 </resources>

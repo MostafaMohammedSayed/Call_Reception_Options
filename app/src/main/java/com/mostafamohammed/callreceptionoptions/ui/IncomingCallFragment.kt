@@ -32,19 +32,11 @@ class IncomingCallFragment : Fragment() {
 
     private fun setUpCenterButtonView() {
         centerButton.startRingAnimation()
-       centerButton.setOnTouchListener { view, motionEvent ->
+       centerButton.setOnTouchListener { view, _ ->
             centerButton.apply {
                 stopRingAnimation()
                 startDrag()
             }
-           if (motionEvent.x == messageButton.x-100 || motionEvent.y == messageButton.y-100 ){
-               view.alpha = 1f
-               view.invalidate()
-           }
-           if (motionEvent.x == messageButton.x+100 || motionEvent.y == messageButton.y+100 ){
-               view.alpha = 1f
-               view.invalidate()
-           }
             view.performClick()
         }
     }
@@ -94,16 +86,6 @@ class IncomingCallFragment : Fragment() {
                     view.alpha = 1f
                     view.invalidate()
                     view.performClick()
-                }
-                DragEvent.ACTION_DRAG_LOCATION -> {
-                    if (dragEvent.x == view.x-30 || dragEvent.y == view.y-30 ){
-                        view.alpha = 1f
-                        view.invalidate()
-                    }
-                    if (dragEvent.x == view.x+30 || dragEvent.y == view.y+30 ){
-                        view.alpha = 1f
-                        view.invalidate()
-                    }
                 }
             }
             return@OnDragListener true

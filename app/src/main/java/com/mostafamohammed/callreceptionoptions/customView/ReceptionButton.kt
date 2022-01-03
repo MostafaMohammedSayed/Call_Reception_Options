@@ -22,7 +22,6 @@ class ReceptionButton @JvmOverloads constructor(
         strokeCap = Paint.Cap.ROUND
     }
 
-
     private val defaultButtonColor = ContextCompat.getColor(context, R.color.button)
     private val defaultFirstRingColor = ContextCompat.getColor(context, R.color.firstRing)
     private val defaultSecondRingColor = ContextCompat.getColor(context, R.color.secondRing)
@@ -321,7 +320,7 @@ class ReceptionButton @JvmOverloads constructor(
     private fun mutePhoneCall() {
         Toast.makeText(
             context,
-            "Muting the call selected!",
+            context.getString(R.string.mute_selected),
             Toast.LENGTH_SHORT
         ).show()
     }
@@ -329,7 +328,7 @@ class ReceptionButton @JvmOverloads constructor(
     private fun sendingCallerAMessage() {
         Toast.makeText(
             context,
-            "Sending a message selected!",
+            context.getString(R.string.message_selected),
             Toast.LENGTH_SHORT
         ).show()
     }
@@ -337,7 +336,7 @@ class ReceptionButton @JvmOverloads constructor(
     private fun rejectPhoneCall() {
         Toast.makeText(
             context,
-            "rejecting the call selected!",
+            context.getString(R.string.reject_selected),
             Toast.LENGTH_SHORT
         ).show()
     }
@@ -345,7 +344,7 @@ class ReceptionButton @JvmOverloads constructor(
     private fun answerPhoneCall() {
         Toast.makeText(
             context,
-            "Answering the call selected!",
+            context.getString(R.string.answering_selected),
             Toast.LENGTH_SHORT
         ).show()
     }
