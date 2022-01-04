@@ -32,7 +32,6 @@
         app:layout_constraintVertical_bias="0.850"
         app:ringWidth="0dp"
         app:state="answer"
-        app:viewSize="100"
         android:contentDescription="@string/answerButton"/>
 
     <com.mostafamohammed.callreceptionoptions.customView.ReceptionButton
